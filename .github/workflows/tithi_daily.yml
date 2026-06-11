@@ -1,0 +1,39 @@
+name: Tithi Daily Check
+
+on:
+  schedule:
+    # UTC 21:00 = 北京时间 05:00（次日）
+    - cron: '0 21 * * *'
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  check-tithi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install system dependencies (for pyswisseph)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q libswe-dev || true
+
+      - name: Install Python dependencies
+        run: pip install pyswisseph ephem apscheduler --quiet
+
+      - name: Run Tithi check
+        env:
+          SMTP_HOST:      ${{ secrets.SMTP_HOST }}
+          SMTP_PORT:      ${{ secrets.SMTP_PORT }}
+          SMTP_USER:      ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD:  ${{ secrets.SMTP_PASSWORD }}
+          SMTP_SENDER:    ${{ secrets.SMTP_SENDER }}
+          SMTP_RECIPIENT: ${{ secrets.SMTP_RECIPIENT }}
+        run: python tithi_run.py

@@ -1,3 +1,12 @@
+# SMTP 配置（含密码，绝对不能提交）
+.smtp_config.json
+
+# 发送状态（本地缓存）
+.tithi_state.json
+
+# 日志
+*.log
+
 # System directories (tracked elsewhere)
 .agent/
 .runs/
