@@ -1,0 +1,24 @@
+# System directories (tracked elsewhere)
+.agent/
+.runs/
+.uploads/
+.thumbnails/
+.chat_history/
+.project/
+.patches/
+.versions/
+
+# Build artifacts
+__pycache__/
+*.pyc
+*.pyo
+node_modules/
+.venv/
+venv/
+
+# OS / temp
+.DS_Store
+*.swp
+*.tmp
+*~
+.ipynb_checkpoints/

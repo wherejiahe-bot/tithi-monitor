@@ -1,0 +1,266 @@
+2026-06-07T01:40:44.408Z [DEBUG] [init] configureGlobalMTLS starting
+2026-06-07T01:40:44.409Z [DEBUG] [init] configureGlobalMTLS complete
+2026-06-07T01:40:44.409Z [DEBUG] [init] configureGlobalAgents starting
+2026-06-07T01:40:44.409Z [DEBUG] [init] configureGlobalAgents complete
+2026-06-07T01:40:44.420Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-06-07T01:40:44.465Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-06-07T01:40:44.466Z [DEBUG] [claudeai-mcp] Checking gate (cached)...
+2026-06-07T01:40:44.466Z [DEBUG] [claudeai-mcp] Gate returned: false
+2026-06-07T01:40:44.466Z [DEBUG] [claudeai-mcp] Disabled via gate
+2026-06-07T01:40:44.480Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-06-07T01:40:44.481Z [DEBUG] [STARTUP] Running setup()...
+2026-06-07T01:40:44.484Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/workspace/.claude/skills, project=[]
+2026-06-07T01:40:44.486Z [DEBUG] Error log sink initialized
+2026-06-07T01:40:44.487Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-06-07T01:40:44.487Z [DEBUG] Total plugin skills loaded: 0
+2026-06-07T01:40:44.487Z [DEBUG] Total plugin commands loaded: 0
+2026-06-07T01:40:44.487Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-06-07T01:40:44.496Z [DEBUG] [STARTUP] setup() completed in 15ms
+2026-06-07T01:40:44.496Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-06-07T01:40:44.499Z [DEBUG] Total plugin agents loaded: 0
+2026-06-07T01:40:44.499Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, legacy commands: 0)
+2026-06-07T01:40:44.499Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 2 bundled skills
+2026-06-07T01:40:44.501Z [DEBUG] [STARTUP] Commands and agents loaded in 4ms
+2026-06-07T01:40:44.501Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-06-07T01:40:44.501Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-06-07T01:40:44.501Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-06-07T01:40:44.502Z [DEBUG] Total LSP servers loaded: 0
+2026-06-07T01:40:44.506Z [DEBUG] [STARTUP] MCP configs loaded in 86ms
+2026-06-07T01:40:44.506Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-06-07T01:40:44.506Z [DEBUG] LSP manager initialized with 0 servers
+2026-06-07T01:40:44.506Z [DEBUG] LSP server manager initialized successfully
+2026-06-07T01:40:44.506Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-06-07T01:40:44.520Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-06-07T01:40:44.520Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-06-07T01:40:44.521Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-06-07T01:40:44.532Z [DEBUG] Writing to temp file: /workspace/.claude/todos/8e8f728b-870c-43d6-9064-7d732d0f295c-agent-8e8f728b-870c-43d6-9064-7d732d0f295c.json.tmp.4566.1780796444532
+2026-06-07T01:40:44.533Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-06-07T01:40:44.533Z [DEBUG] Renaming /workspace/.claude/todos/8e8f728b-870c-43d6-9064-7d732d0f295c-agent-8e8f728b-870c-43d6-9064-7d732d0f295c.json.tmp.4566.1780796444532 to /workspace/.claude/todos/8e8f728b-870c-43d6-9064-7d732d0f295c-agent-8e8f728b-870c-43d6-9064-7d732d0f295c.json
+2026-06-07T01:40:44.533Z [DEBUG] File /workspace/.claude/todos/8e8f728b-870c-43d6-9064-7d732d0f295c-agent-8e8f728b-870c-43d6-9064-7d732d0f295c.json written atomically
+2026-06-07T01:40:44.774Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-06-07T01:40:44.774Z [DEBUG] Found 0 hook matchers in settings
+2026-06-07T01:40:44.774Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-06-07T01:40:44.787Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444787
+2026-06-07T01:40:44.787Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.787Z [DEBUG] Temp file written successfully, size: 352 bytes
+2026-06-07T01:40:44.787Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.787Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444787 to /workspace/.claude.json
+2026-06-07T01:40:44.787Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.788Z [DEBUG] Total plugin output styles loaded: 0
+2026-06-07T01:40:44.796Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444796
+2026-06-07T01:40:44.796Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.796Z [DEBUG] Temp file written successfully, size: 427 bytes
+2026-06-07T01:40:44.796Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.796Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444796 to /workspace/.claude.json
+2026-06-07T01:40:44.796Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.798Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444798
+2026-06-07T01:40:44.798Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.798Z [DEBUG] Temp file written successfully, size: 462 bytes
+2026-06-07T01:40:44.798Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.798Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444798 to /workspace/.claude.json
+2026-06-07T01:40:44.798Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.799Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444799
+2026-06-07T01:40:44.799Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.799Z [DEBUG] Temp file written successfully, size: 490 bytes
+2026-06-07T01:40:44.799Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.799Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444799 to /workspace/.claude.json
+2026-06-07T01:40:44.800Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.801Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444801
+2026-06-07T01:40:44.801Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.801Z [DEBUG] Temp file written successfully, size: 523 bytes
+2026-06-07T01:40:44.801Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.801Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444801 to /workspace/.claude.json
+2026-06-07T01:40:44.801Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.802Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444802
+2026-06-07T01:40:44.803Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.803Z [DEBUG] Temp file written successfully, size: 575 bytes
+2026-06-07T01:40:44.803Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.803Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444802 to /workspace/.claude.json
+2026-06-07T01:40:44.803Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.804Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444804
+2026-06-07T01:40:44.804Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.804Z [DEBUG] Temp file written successfully, size: 619 bytes
+2026-06-07T01:40:44.804Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.804Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444804 to /workspace/.claude.json
+2026-06-07T01:40:44.804Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.806Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444806
+2026-06-07T01:40:44.806Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.806Z [DEBUG] Temp file written successfully, size: 658 bytes
+2026-06-07T01:40:44.806Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.806Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444806 to /workspace/.claude.json
+2026-06-07T01:40:44.806Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.808Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444808
+2026-06-07T01:40:44.808Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.808Z [DEBUG] Temp file written successfully, size: 697 bytes
+2026-06-07T01:40:44.808Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.808Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444808 to /workspace/.claude.json
+2026-06-07T01:40:44.808Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.809Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444809
+2026-06-07T01:40:44.809Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.809Z [DEBUG] Temp file written successfully, size: 736 bytes
+2026-06-07T01:40:44.811Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.811Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444809 to /workspace/.claude.json
+2026-06-07T01:40:44.811Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.812Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444812
+2026-06-07T01:40:44.812Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.812Z [DEBUG] Temp file written successfully, size: 769 bytes
+2026-06-07T01:40:44.812Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.812Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444812 to /workspace/.claude.json
+2026-06-07T01:40:44.812Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.814Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444814
+2026-06-07T01:40:44.814Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.814Z [DEBUG] Temp file written successfully, size: 799 bytes
+2026-06-07T01:40:44.814Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.814Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444814 to /workspace/.claude.json
+2026-06-07T01:40:44.814Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.815Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444815
+2026-06-07T01:40:44.815Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.816Z [DEBUG] Temp file written successfully, size: 832 bytes
+2026-06-07T01:40:44.816Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.816Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444815 to /workspace/.claude.json
+2026-06-07T01:40:44.816Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.817Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444817
+2026-06-07T01:40:44.817Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.817Z [DEBUG] Temp file written successfully, size: 885 bytes
+2026-06-07T01:40:44.817Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.817Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444817 to /workspace/.claude.json
+2026-06-07T01:40:44.817Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.818Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444818
+2026-06-07T01:40:44.818Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.818Z [DEBUG] Temp file written successfully, size: 915 bytes
+2026-06-07T01:40:44.818Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.818Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444818 to /workspace/.claude.json
+2026-06-07T01:40:44.819Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.820Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444820
+2026-06-07T01:40:44.820Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.820Z [DEBUG] Temp file written successfully, size: 961 bytes
+2026-06-07T01:40:44.820Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.820Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444820 to /workspace/.claude.json
+2026-06-07T01:40:44.820Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.821Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444821
+2026-06-07T01:40:44.821Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.822Z [DEBUG] Temp file written successfully, size: 997 bytes
+2026-06-07T01:40:44.822Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.822Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444821 to /workspace/.claude.json
+2026-06-07T01:40:44.822Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.843Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444843
+2026-06-07T01:40:44.843Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.843Z [DEBUG] Temp file written successfully, size: 1044 bytes
+2026-06-07T01:40:44.843Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.843Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444843 to /workspace/.claude.json
+2026-06-07T01:40:44.843Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.845Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444845
+2026-06-07T01:40:44.845Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.846Z [DEBUG] Temp file written successfully, size: 1075 bytes
+2026-06-07T01:40:44.846Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.846Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444845 to /workspace/.claude.json
+2026-06-07T01:40:44.846Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.859Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-06-07T01:40:44.860Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444860
+2026-06-07T01:40:44.860Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.860Z [DEBUG] Temp file written successfully, size: 1125 bytes
+2026-06-07T01:40:44.860Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.860Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444860 to /workspace/.claude.json
+2026-06-07T01:40:44.861Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.863Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.30.b58; cc_entrypoint=sdk-cli;
+2026-06-07T01:40:44.866Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-06-07T01:40:44.866Z [DEBUG] [API:auth] OAuth token check starting
+2026-06-07T01:40:44.868Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444868
+2026-06-07T01:40:44.868Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.868Z [DEBUG] Temp file written successfully, size: 1163 bytes
+2026-06-07T01:40:44.868Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.868Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444868 to /workspace/.claude.json
+2026-06-07T01:40:44.869Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.870Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444870
+2026-06-07T01:40:44.870Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.870Z [DEBUG] Temp file written successfully, size: 1201 bytes
+2026-06-07T01:40:44.870Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.870Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444870 to /workspace/.claude.json
+2026-06-07T01:40:44.870Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.871Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444871
+2026-06-07T01:40:44.871Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.871Z [DEBUG] Temp file written successfully, size: 1229 bytes
+2026-06-07T01:40:44.871Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.871Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444871 to /workspace/.claude.json
+2026-06-07T01:40:44.871Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.871Z [DEBUG] [API:auth] OAuth token check complete
+2026-06-07T01:40:44.877Z [ERROR] API error (attempt 1/11): Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-06-07T01:40:44.898Z [ERROR] Error in non-streaming fallback: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-06-07T01:40:44.899Z [ERROR] Error: Error: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+    at XC.validateHeaders (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:1008)
+    at XC.buildHeaders (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:8502)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async XC.buildRequest (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:7560)
+    at async XC.makeRequest (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:3388)
+2026-06-07T01:40:44.922Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444922
+2026-06-07T01:40:44.922Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.922Z [DEBUG] Temp file written successfully, size: 1261 bytes
+2026-06-07T01:40:44.922Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.922Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444922 to /workspace/.claude.json
+2026-06-07T01:40:44.922Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.923Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-06-07T01:40:44.923Z [DEBUG] [API:auth] OAuth token check starting
+2026-06-07T01:40:44.925Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-06-07T01:40:44.925Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-06-07T01:40:44.925Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-06-07T01:40:44.926Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-06-07T01:40:44.926Z [DEBUG] [API:auth] OAuth token check complete
+2026-06-07T01:40:44.930Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-06-07T01:40:44.930Z [DEBUG] Found 0 hook matchers in settings
+2026-06-07T01:40:44.930Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-06-07T01:40:44.930Z [ERROR] Error: Error: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+    at XC.validateHeaders (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:1008)
+    at XC.buildHeaders (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:8502)
+    at async XC.buildRequest (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:7560)
+    at async XC.makeRequest (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:3388)
+    at async file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:3297:18637
+    at async file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:1025:2232
+    at async Xy9 (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:1024:17216)
+    at async _e7 (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:1025:2165)
+    at async Cg1 (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:3297:3684)
+    at async Od (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:3297:4380)
+2026-06-07T01:40:44.931Z [DEBUG] countTokensWithFallback: API returned null, trying haiku fallback (18 tools)
+2026-06-07T01:40:44.932Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-06-07T01:40:44.932Z [DEBUG] [API:auth] OAuth token check starting
+2026-06-07T01:40:44.934Z [DEBUG] [API:auth] OAuth token check complete
+2026-06-07T01:40:44.936Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444936
+2026-06-07T01:40:44.936Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.936Z [DEBUG] Temp file written successfully, size: 1299 bytes
+2026-06-07T01:40:44.936Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.936Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444936 to /workspace/.claude.json
+2026-06-07T01:40:44.936Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.939Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4566.1780796444939
+2026-06-07T01:40:44.939Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:44.939Z [DEBUG] Temp file written successfully, size: 1345 bytes
+2026-06-07T01:40:44.939Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:44.939Z [DEBUG] Renaming /workspace/.claude.json.tmp.4566.1780796444939 to /workspace/.claude.json
+2026-06-07T01:40:44.939Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:44.940Z [DEBUG] Auto tool search disabled: 0 tokens (threshold: 20000, 10% of context) [source: query]
+2026-06-07T01:40:44.945Z [DEBUG] countTokensWithFallback: haiku fallback failed: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-06-07T01:40:44.945Z [ERROR] Error: Error: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+    at XC.validateHeaders (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:1008)
+    at XC.buildHeaders (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:8502)
+    at async XC.buildRequest (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:7560)
+    at async XC.makeRequest (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:3388)
+    at async kr4 (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:3297:19329)
+    at async Cg1 (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:3297:3956)
+    at async Od (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:3297:4380)
+    at async ki4 (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:3143:554)
+2026-06-07T01:40:44.945Z [DEBUG] countToolDefinitionTokens returned null for 18 tools: Task, TaskOutput, Bash, Glob, Grep, ExitPlanMode, Read, Edit, Write, NotebookEdit, WebFetch, TodoWri...
+2026-06-07T01:40:44.945Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.30.b39; cc_entrypoint=sdk-cli;
+2026-06-07T01:40:44.950Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-06-07T01:40:44.950Z [DEBUG] [API:auth] OAuth token check starting
+2026-06-07T01:40:44.951Z [DEBUG] [API:auth] OAuth token check complete
+2026-06-07T01:40:44.952Z [ERROR] API error (attempt 1/11): Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-06-07T01:40:44.952Z [ERROR] Error in non-streaming fallback: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-06-07T01:40:44.952Z [ERROR] Error: Error: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+    at XC.validateHeaders (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:1008)
+    at XC.buildHeaders (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:8502)
+    at async XC.buildRequest (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:7560)
+    at async XC.makeRequest (file:///usr/lib/node_modules/@anthropic-ai/claude-code/cli.js:422:3388)
+2026-06-07T01:40:44.955Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-06-07T01:40:44.955Z [DEBUG] Found 0 hook matchers in settings
+2026-06-07T01:40:44.955Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-06-07T01:40:44.957Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2026-06-07T01:40:44.957Z [DEBUG] Found 0 hook matchers in settings
+2026-06-07T01:40:44.957Z [DEBUG] Matched 0 unique hooks for query "other" (0 before deduplication)

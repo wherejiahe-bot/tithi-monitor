@@ -1,0 +1,81 @@
+2026-06-07T01:40:38.894Z [ERROR] Failed to save config with lock: Error: ENOENT: no such file or directory, lstat '/workspace/.claude.json'
+2026-06-07T01:40:38.895Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4467.1780796438895
+2026-06-07T01:40:38.895Z [DEBUG] Setting permissions for new file: 600
+2026-06-07T01:40:38.896Z [DEBUG] Temp file written successfully, size: 82 bytes
+2026-06-07T01:40:38.896Z [DEBUG] Renaming /workspace/.claude.json.tmp.4467.1780796438895 to /workspace/.claude.json
+2026-06-07T01:40:38.896Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:38.903Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4467.1780796438903
+2026-06-07T01:40:38.904Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:38.904Z [DEBUG] Temp file written successfully, size: 130 bytes
+2026-06-07T01:40:38.904Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:38.904Z [DEBUG] Renaming /workspace/.claude.json.tmp.4467.1780796438903 to /workspace/.claude.json
+2026-06-07T01:40:38.904Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:38.905Z [DEBUG] [init] configureGlobalMTLS starting
+2026-06-07T01:40:38.905Z [DEBUG] [init] configureGlobalMTLS complete
+2026-06-07T01:40:38.905Z [DEBUG] [init] configureGlobalAgents starting
+2026-06-07T01:40:38.905Z [DEBUG] [init] configureGlobalAgents complete
+2026-06-07T01:40:38.908Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4467.1780796438908
+2026-06-07T01:40:38.908Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:38.908Z [DEBUG] Temp file written successfully, size: 167 bytes
+2026-06-07T01:40:38.908Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:38.908Z [DEBUG] Renaming /workspace/.claude.json.tmp.4467.1780796438908 to /workspace/.claude.json
+2026-06-07T01:40:38.908Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:38.909Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4467.1780796438909
+2026-06-07T01:40:38.910Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:38.910Z [DEBUG] Temp file written successfully, size: 202 bytes
+2026-06-07T01:40:38.910Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:38.910Z [DEBUG] Renaming /workspace/.claude.json.tmp.4467.1780796438909 to /workspace/.claude.json
+2026-06-07T01:40:38.910Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:38.911Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4467.1780796438911
+2026-06-07T01:40:38.911Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:38.911Z [DEBUG] Temp file written successfully, size: 238 bytes
+2026-06-07T01:40:38.911Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:38.911Z [DEBUG] Renaming /workspace/.claude.json.tmp.4467.1780796438911 to /workspace/.claude.json
+2026-06-07T01:40:38.912Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:38.914Z [DEBUG] Writing to temp file: /workspace/.claude.json.tmp.4467.1780796438914
+2026-06-07T01:40:38.914Z [DEBUG] Preserving file permissions: 100600
+2026-06-07T01:40:38.914Z [DEBUG] Temp file written successfully, size: 275 bytes
+2026-06-07T01:40:38.914Z [DEBUG] Applied original permissions to temp file
+2026-06-07T01:40:38.914Z [DEBUG] Renaming /workspace/.claude.json.tmp.4467.1780796438914 to /workspace/.claude.json
+2026-06-07T01:40:38.914Z [DEBUG] File /workspace/.claude.json written atomically
+2026-06-07T01:40:38.940Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-06-07T01:40:38.986Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-06-07T01:40:38.986Z [DEBUG] [claudeai-mcp] Checking gate (cached)...
+2026-06-07T01:40:38.986Z [DEBUG] [claudeai-mcp] Gate returned: false
+2026-06-07T01:40:38.986Z [DEBUG] [claudeai-mcp] Disabled via gate
+2026-06-07T01:40:38.989Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-06-07T01:40:38.990Z [DEBUG] [STARTUP] Running setup()...
+2026-06-07T01:40:38.992Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/workspace/.claude/skills, project=[]
+2026-06-07T01:40:38.993Z [DEBUG] Error log sink initialized
+2026-06-07T01:40:38.994Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-06-07T01:40:38.994Z [DEBUG] Total plugin skills loaded: 0
+2026-06-07T01:40:38.994Z [DEBUG] Total plugin commands loaded: 0
+2026-06-07T01:40:38.994Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-06-07T01:40:39.003Z [DEBUG] [STARTUP] setup() completed in 13ms
+2026-06-07T01:40:39.003Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-06-07T01:40:39.006Z [DEBUG] Total plugin agents loaded: 0
+2026-06-07T01:40:39.006Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, legacy commands: 0)
+2026-06-07T01:40:39.006Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 2 bundled skills
+2026-06-07T01:40:39.008Z [DEBUG] [STARTUP] Commands and agents loaded in 5ms
+2026-06-07T01:40:39.008Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-06-07T01:40:39.008Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-06-07T01:40:39.008Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-06-07T01:40:39.009Z [DEBUG] Total LSP servers loaded: 0
+2026-06-07T01:40:39.012Z [DEBUG] [STARTUP] MCP configs loaded in 72ms
+2026-06-07T01:40:39.013Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-06-07T01:40:39.013Z [DEBUG] LSP manager initialized with 0 servers
+2026-06-07T01:40:39.013Z [DEBUG] LSP server manager initialized successfully
+2026-06-07T01:40:39.013Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-06-07T01:40:39.026Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-06-07T01:40:39.026Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-06-07T01:40:39.027Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-06-07T01:40:39.039Z [DEBUG] Writing to temp file: /workspace/.claude/todos/1e1e08aa-0579-4b3d-befa-5ff110700ee6-agent-1e1e08aa-0579-4b3d-befa-5ff110700ee6.json.tmp.4467.1780796439039
+2026-06-07T01:40:39.039Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-06-07T01:40:39.039Z [DEBUG] Renaming /workspace/.claude/todos/1e1e08aa-0579-4b3d-befa-5ff110700ee6-agent-1e1e08aa-0579-4b3d-befa-5ff110700ee6.json.tmp.4467.1780796439039 to /workspace/.claude/todos/1e1e08aa-0579-4b3d-befa-5ff110700ee6-agent-1e1e08aa-0579-4b3d-befa-5ff110700ee6.json
+2026-06-07T01:40:39.039Z [DEBUG] File /workspace/.claude/todos/1e1e08aa-0579-4b3d-befa-5ff110700ee6-agent-1e1e08aa-0579-4b3d-befa-5ff110700ee6.json written atomically
+2026-06-07T01:40:39.286Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-06-07T01:40:39.286Z [DEBUG] Found 0 hook matchers in settings
+2026-06-07T01:40:39.286Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-06-07T01:40:39.287Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2026-06-07T01:40:39.287Z [DEBUG] Found 0 hook matchers in settings
+2026-06-07T01:40:39.287Z [DEBUG] Matched 0 unique hooks for query "other" (0 before deduplication)
