@@ -139,6 +139,10 @@ def load_state() -> dict:
 
 
 def save_state(state: dict):
+    # 确保父目录存在
+    dir_path = os.path.dirname(STATE_FILE)
+    if dir_path and not os.path.exists(dir_path):
+        os.makedirs(dir_path, exist_ok=True)
     with open(STATE_FILE, 'w') as f:
         json.dump(state, f, indent=2, ensure_ascii=False)
 
@@ -178,7 +182,7 @@ def build_email(tithi_num: int, tithi_name: str,
     """返回 (subject, body)"""
 
     # 首行：起止时间
-    header = f"从北京时间 {fmt_bj(start_bj)}-{fmt_bj(end_bj)}，是印度历法中的{tithi_name}\n\n（母亲的赐福与向神祇祈求保护，是每天都会做的，咱们不执着哈。算法来自网络，大家带着明辨。）"
+    header = f"从北京时间 {fmt_bj(start_bj)}-{fmt_bj(end_bj)}，是印度历法中的{tithi_name}\n\n（接收母亲的赐福与向神祇祈求保护，是每天都会做的，咱们不执着哈。算法来自网络，大家带着明辨。）"
 
     # 月相精确时间（仅 Amavasya / Purnima）
     moon_line = ""
@@ -249,6 +253,10 @@ def log(msg: str):
     ts = datetime.now(TZ_BEIJING).strftime('%Y-%m-%d %H:%M:%S')
     line = f"[{ts}] {msg}"
     print(line)
+    # 确保日志目录存在
+    log_dir = os.path.dirname(LOG_FILE)
+    if log_dir and not os.path.exists(log_dir):
+        os.makedirs(log_dir, exist_ok=True)
     with open(LOG_FILE, 'a') as f:
         f.write(line + '\n')
 
