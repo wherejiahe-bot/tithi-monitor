@@ -182,7 +182,7 @@ def build_email(tithi_num: int, tithi_name: str,
     """返回 (subject, body)"""
 
     # 首行：起止时间
-    header = f"从北京时间 {fmt_bj(start_bj)}-{fmt_bj(end_bj)}，是印度历法中的{tithi_name}\n\n（接收母亲的赐福与向神祇祈求保护，是每天都会做的，咱们不执着哈。算法来自网络，大家带着明辨。）"
+    header = f"从北京时间 {fmt_bj(start_bj)}-{fmt_bj(end_bj)}，是印度历法中的{tithi_name}\n"
 
     # 月相精确时间（仅 Amavasya / Purnima）
     moon_line = ""
@@ -205,7 +205,7 @@ def build_email(tithi_num: int, tithi_name: str,
 
     subject = f"印度历法提醒：{tithi_name}"
     footer = "\n\n月相时间查询网站：https://wherejiahe-bot.github.io/tithi-now/"
-    body = f"{header}{moon_line}\n\n{extra}{footer}"
+    body = f"{header}{moon_line}\n\n（接收母亲的赐福与向神祇祈求保护，是每天都会做的，咱们不执着哈。算法来自网络，大家带着明辨。）\n\n{extra}{footer}"
     return subject, body
 
 
