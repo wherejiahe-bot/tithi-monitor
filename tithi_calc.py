@@ -213,6 +213,92 @@ SAPTAMI_NUMS = {7, 22}
 NAVAMI_NUMS = {9, 24}
 
 
+def get_sunrise_bj(year: int, month: int, day: int, lon: float = 116.39, lat: float = 39.92) -> datetime:
+    """
+    计算指定日期在北京地区的日出时间（北京时间）。
+    使用 swisseph 计算太阳上缘（upper limb）刚好出现在地平线上的时刻。
+    Beijing area: lat=39.92, lon=116.39 (Beijing Observatory)
+    
+    Args:
+        year, month, day: 日期
+        lon: 经度（东经为正），默认 116.39（北京观象台）
+        lat: 纬度（北纬为正），默认 39.92（北京观象台）
+    
+    Returns:
+        日出时间的北京时间 datetime
+    """
+    import swisseph as swe
+    
+    # 用 utc 中午作为参考 JD
+    ref_utc = datetime(year, month, day, 12, 0, 0, tzinfo=TZ_UTC)
+    ref_jd = _utc_to_jd(ref_utc)
+    
+    # 搜索日出时刻：太阳高度角 = -0.833°（大气折射补偿 + 太阳半径）
+    # 搜索范围：UTC 00:00 ~ 12:00（北京日出通常在 UTC 21~23 或 UTC 22~23 前一天）
+    # 换算：北京时间 UTC+8，日出约 05:00-06:30 → UTC 约 21:00-23:00 前一天
+    # 所以我们从 UTC 前一天的 18:00 搜到当天的 02:00
+    
+    search_start = datetime(year, month, day - 1, 18, 0, 0, tzinfo=TZ_UTC)
+    search_end   = datetime(year, month, day, 2, 30, 0, tzinfo=TZ_UTC)
+    
+    jd_start = _utc_to_jd(search_start)
+    jd_end   = _utc_to_jd(search_end)
+    
+    # 二分查找太阳上缘穿过地平线的时刻
+    def sun_height_at_jd(jd):
+        """返回太阳中心高度角（度）"""
+        h = swe.calc_ut(jd, swe.SUN)[0][8]  # 高度角
+        return h
+    
+    # 太阳上缘高度角 = 中心高度角 + 太阳视半径 ≈ +0.267°
+    # 地平线 = 0°，大气折射约 0.567°
+    # 所以太阳上缘接触地平线时：中心高度角 ≈ -0.833°
+    threshold = -0.833
+    
+    lo = jd_start
+    hi = jd_end
+    for _ in range(50):
+        mid = (lo + hi) / 2
+        h_mid = sun_height_at_jd(mid)
+        h_lo = sun_height_at_jd(lo)
+        if h_mid > threshold:
+            hi = mid
+        else:
+            lo = mid
+    
+    return _jd_to_beijing((lo + hi) / 2)
+
+
+def get_sunrise_for_tithi(tz_lon: float = 116.39, tz_lat: float = 39.92):
+    """
+    为每一天计算日出时刻的 Tithi。
+    返回 {date_str: tithi_num} 字典。
+    用于确定当天（日出到次日日出）的 Tithi 名称。
+    
+    参数:
+        tz_lon: 时区经度（北京标准时 = 116.39°E）
+        tz_lat: 时区纬度
+    """
+    from datetime import date, timedelta
+    
+    result = {}
+    now = datetime.now(TZ_UTC)
+    
+    # 计算前后 3 天（避免边界问题）
+    start_date = (now.astimezone(TZ_BEIJING) - timedelta(days=3)).date()
+    end_date = (now.astimezone(TZ_BEIJING) + timedelta(days=3)).date()
+    
+    d = start_date
+    while d <= end_date:
+        sunrise = get_sunrise_bj(d.year, d.month, d.day, tz_lon, tz_lat)
+        sunrise_utc = sunrise.astimezone(TZ_UTC)
+        tithi_num = get_tithi_number(sunrise_utc)
+        result[d.isoformat()] = tithi_num
+        d += timedelta(days=1)
+    
+    return result
+
+
 if __name__ == "__main__":
     # 快速自测
     now_utc = datetime.now(TZ_UTC)
