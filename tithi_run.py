@@ -4,6 +4,11 @@ tithi_run.py — GitHub Actions 单次运行入口
 由 GitHub Actions 每天北京时间 05:00（UTC 21:00 前一天）触发，单次执行后退出。
 SMTP 配置从环境变量读取（GitHub Secrets 注入）：
   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_SENDER, SMTP_RECIPIENT
+
+核心逻辑（印度历法日规则）：
+- 印度历法的一天（Ahoratra）从日出开始，到次日日出结束
+- 日出瞬间处于哪个 Tithi，这一整天就命名为那个 Tithi
+- 不管这个 Tithi 是否在日出后几分钟就结束
 """
 
 import sys, os, json, smtplib
@@ -15,8 +20,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from tithi_calc import (
     get_tithi_number, get_tithi_name, get_tithi_start_end,
-    get_moon_phase_exact_time, MONITORED_TITHIS,
-    TZ_UTC, TZ_BEIJING,
+    get_moon_phase_exact_time, get_sunrise_for_tithi,
+    MONITORED_TITHIS, TZ_UTC, TZ_BEIJING,
 )
 from tithi_monitor import (
     build_email, load_state, save_state,
@@ -42,7 +47,6 @@ def load_smtp_config():
             'password': env_password,
             'sender':   os.environ.get('SMTP_SENDER', os.environ.get('SMTP_USER', '')),
         }
-    # 本地开发：读 .smtp_config.json
     cfg_file = os.path.join(os.path.dirname(__file__), '.smtp_config.json')
     if os.path.exists(cfg_file):
         with open(cfg_file) as f:
@@ -69,30 +73,49 @@ def send_via_smtp(cfg, to_addr, subject, body):
         return False
 
 
-def scan_day_tithis(day_bj: datetime) -> list:
-    """扫描给定北京时间日期（00:00 ~ 23:59）内出现的所有监控 Tithi"""
-    day_start_bj = day_bj.replace(hour=0, minute=0, second=0, microsecond=0)
-    day_end_bj   = day_bj.replace(hour=23, minute=59, second=0, microsecond=0)
-    day_start_utc = day_start_bj.astimezone(TZ_UTC)
-    day_end_utc   = day_end_bj.astimezone(TZ_UTC)
-
-    found = {}
-    step = timedelta(minutes=30)
-    t = day_start_utc
-    while t <= day_end_utc + timedelta(minutes=30):
-        tnum = get_tithi_number(t)
-        if tnum in MONITORED_TITHIS and tnum not in found:
-            start_bj, end_bj = get_tithi_start_end(t)
-            if end_bj >= day_start_bj and start_bj <= day_end_bj:
-                found[tnum] = {
-                    'tithi_num':  tnum,
-                    'tithi_name': get_tithi_name(tnum),
-                    'start_bj':   start_bj,
-                    'end_bj':     end_bj,
-                    'sample_utc': t,
-                }
-        t += step
-    return list(found.values())
+def get_today_tithi(day_bj: datetime) -> dict:
+    """
+    根据印度历法日规则：从当天日出到次日日出。
+    当天日出瞬间的 Tithi 决定整个天的名称。
+    
+    返回 dict 或 None：
+      {
+        'tithi_num': 30,
+        'tithi_name': 'Amavasya',
+        'start_bj': 日出时的 Tithi 开始时间,
+        'end_bj': 日出时的 Tithi 结束时间,
+      }
+    """
+    bj_date = day_bj.date()
+    
+    # 使用 get_sunrise_for_tithi 获取当天的日出 Tithi
+    sunrise_tithis = get_sunrise_for_tithi()
+    
+    date_str = bj_date.isoformat()
+    if date_str not in sunrise_tithis:
+        return None
+    
+    tnum = sunrise_tithis[date_str]
+    
+    if tnum not in MONITORED_TITHIS:
+        return None
+    
+    # 获取日出 UTC 时刻（用于后续计算）
+    from datetime import timedelta
+    # 估算日出时间：北京地区约 05:30-06:30
+    sunrise_approx = datetime(bj_date.year, bj_date.month, bj_date.day, 6, 0, 0, tzinfo=TZ_BEIJING)
+    sunrise_utc = sunrise_approx.astimezone(TZ_UTC)
+    
+    tithi_start, tithi_end = get_tithi_start_end(sunrise_utc)
+    tname = get_tithi_name(tnum)
+    
+    return {
+        'tithi_num':  tnum,
+        'tithi_name': tname,
+        'start_bj':   tithi_start,
+        'end_bj':     tithi_end,
+        'sample_utc': sunrise_utc,
+    }
 
 
 def daily_check():
@@ -105,33 +128,35 @@ def daily_check():
         log("✗ SMTP 密码未配置，无法发送邮件。")
         sys.exit(1)
 
-    # 收件人：优先环境变量，否则用 tithi_monitor 中的默认值
     recipient = os.environ.get('SMTP_RECIPIENT', RECIPIENT)
 
-    tithis = scan_day_tithis(now_bj)
-    if not tithis:
-        log("今日无监控 Tithi，无需发送邮件。")
+    # 使用日出规则确定今天的 Tithi
+    today_tithi = get_today_tithi(now_bj)
+    if not today_tithi:
+        log("今日日出时的 Tithi 不在监控列表中，无需发送邮件。")
         return
 
-    log(f"今日发现 {len(tithis)} 个监控 Tithi: {[t['tithi_name'] for t in tithis]}")
+    tnum  = today_tithi['tithi_num']
+    tname = today_tithi['tithi_name']
+    start_bj = today_tithi['start_bj']
+    end_bj = today_tithi['end_bj']
+    sample_utc = today_tithi['sample_utc']
+
+    log(f"日出 Tithi: {tnum} ({tname})")
+    log(f"日出日期: {now_bj.date()}")
+    log(f"Tithi 范围: {fmt_bj(start_bj)} ~ {fmt_bj(end_bj)}")
 
     state = load_state()
-    for item in tithis:
-        tnum       = item['tithi_num']
-        start_bj   = item['start_bj']
-        end_bj     = item['end_bj']
-        tname      = item['tithi_name']
-        sample_utc = item['sample_utc']
 
-        if already_sent(state, tnum, start_bj):
-            log(f"  [{tname}] 今日已发送，跳过。")
-            continue
+    if already_sent(state, tnum, start_bj):
+        log(f"  [{tname}] 今日已发送，跳过。")
+        return
 
-        subject, body = build_email(tnum, tname, start_bj, end_bj, sample_utc)
-        sent = send_via_smtp(cfg, recipient, subject, body)
-        if sent:
-            mark_sent(state, tnum, start_bj)
-            save_state(state)
+    subject, body = build_email(tnum, tname, start_bj, end_bj, sample_utc)
+    sent = send_via_smtp(cfg, recipient, subject, body)
+    if sent:
+        mark_sent(state, tnum, start_bj)
+        save_state(state)
 
 
 if __name__ == '__main__':
