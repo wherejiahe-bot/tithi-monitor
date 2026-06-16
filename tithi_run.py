@@ -75,8 +75,9 @@ def send_via_smtp(cfg, to_addr, subject, body):
 
 def get_today_tithi(day_bj: datetime) -> dict:
     """
-    根据印度历法日规则：从当天日出到次日日出。
-    当天日出瞬间的 Tithi 决定整个天的名称。
+    根据印度历法日规则（Ahoratra）：
+    - 一天从日出到次日日出
+    - 日出瞬间处于哪个 Tithi，这天就叫哪个 Tithi 名
     
     返回 dict 或 None：
       {
@@ -88,23 +89,15 @@ def get_today_tithi(day_bj: datetime) -> dict:
     """
     bj_date = day_bj.date()
     
-    # 使用 get_sunrise_for_tithi 获取当天的日出 Tithi
-    sunrise_tithis = get_sunrise_for_tithi()
+    # 直接计算当天日出
+    sunrise_bj = get_sunrise_bj(bj_date.year, bj_date.month, bj_date.day)
+    sunrise_utc = sunrise_bj.astimezone(TZ_UTC)
     
-    date_str = bj_date.isoformat()
-    if date_str not in sunrise_tithis:
-        return None
-    
-    tnum = sunrise_tithis[date_str]
+    # 日出瞬间的 Tithi 就是这天的名字
+    tnum = get_tithi_number(sunrise_utc)
     
     if tnum not in MONITORED_TITHIS:
         return None
-    
-    # 获取日出 UTC 时刻（用于后续计算）
-    from datetime import timedelta
-    # 估算日出时间：北京地区约 05:30-06:30
-    sunrise_approx = datetime(bj_date.year, bj_date.month, bj_date.day, 6, 0, 0, tzinfo=TZ_BEIJING)
-    sunrise_utc = sunrise_approx.astimezone(TZ_UTC)
     
     tithi_start, tithi_end = get_tithi_start_end(sunrise_utc)
     tname = get_tithi_name(tnum)
