@@ -1,7 +1,10 @@
 """
 tithi_monitor.py — 整点调度脚本
 
-由 cron 每小时整点调用：
+由 Python 调度脚本调用：
+1. 扫描今天日出时刻的 Tithi（印度历法日规则）
+2. 如果 Tithi 在监控列表中（Saptami/Navami/Purnima/Amavasya），发送邮件
+3. 去重：同一天只发一次
 1. 检查当前是否处于 Saptami / Navami / Amavasya / Purnima
 2. 去重：同一 tithi 期间只发一次邮件
 3. 符合条件则用 Gmail 发送格式化邮件到 455048345@qq.com
